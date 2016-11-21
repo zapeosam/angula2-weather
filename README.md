@@ -45,3 +45,6 @@ Code need cleanup
 
 - hardcoded vars and constants should be moved to separate config file
 - the method for determining if the dog should be taken for a walk should be in a separate component
+- ...
+
+App also needs better design
