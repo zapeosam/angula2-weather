@@ -1,0 +1,56 @@
+<div class="widget-block">
+ <div class="img-area">
+    <div class="img-area-mask"></div>
+    <img src="assets/images/paris-sm.jpg" alt="">
+    <div class="img-area-front">
+       <h5 class="location">
+         NUFFIELD Technologies Limited
+       </h5>
+       <p class="today">
+         {{weatherData?.time*1000 | date:'d MMMM yyyy hh:mm a'}}
+       </p>
+       <div class="weather-desc">
+          <span>
+            {{weatherData?.summary}}
+          </span>
+       </div>
+       <ul class="weather-block-info">
+          <li>
+             <p class="temperature">
+               {{((weatherData?.temperature - 32)/1.8) | number: '1.0-0' }}
+               <span class="temperature-feels">
+                 Real feel {{((weatherData?.apparentTemperature - 32)/1.8) | number: '1.0-0' }}
+               </span>
+             </p>
+          </li>
+          <li>
+            <div class="inner">
+              <i class="climacon {{weatherData?.icon}}"></i>
+            </div>
+          </li>
+          <li>
+            <ul class="weather-params">
+              <li><span>Visibility {{weatherData?.visibility}} miles</span></li>
+              <li><span>Humidity {{weatherData?.humidity*100}}%</span></li>
+              <li><span>Precipitation chance {{weatherData?.precipProbability * 100}}%</span></li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <ul class="week-forecast">
+    <li class="sun">
+       <div class="inner">
+         <span *ngIf="weatherData?.dogWalking > 0">
+           <h5 *ngIf="weatherData?.dogWalking == 1" class="week-day">Chewie : I know it is not lunch time but please take me out!</h5>
+           <h5 *ngIf="weatherData?.dogWalking == 2" class="week-day">Chewie : IT IS LUNCH .... WE MUST GO OUT NOW!</h5>
+           <img src="assets/images/animated-dog-jumping.gif" alt="" />
+         </span>
+         <span *ngIf="weatherData?.dogWalking == 0">
+           <h5 class="week-day">Chewie : I do not like this weather!</h5>
+           <img src="assets/images/animated-dog-sleeping.gif" alt="" />
+         </span>
+       </div>
+    </li>
+  </ul>
+</div>
